@@ -1,0 +1,20 @@
+.add-puppy_form {
+    flex-direction: column;
+    display: flex;
+    color: white;
+}
+.submit-button {
+    width: 100px;
+    padding: 10px 0px 10px;
+    font-size: 16px;
+    margin: 10px auto;
+    align-self: center;
+    border: hidden;
+    background-color: rgb(90, 90, 90);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+.submit-button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
