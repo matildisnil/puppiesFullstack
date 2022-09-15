@@ -1,17 +1,6 @@
-.puppy-card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    width: 200px;
-
-}
-
 .show-details {
     background-color: rgb(170, 170, 170);
     padding: 10px;
-    border: 1px solid black;
     border-radius: 10px;
 }
 
@@ -20,19 +9,30 @@
     background-color: rgb(187, 187, 187);
 }
 
-.puppy-card{
+.puppy-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    max-width: 250px;
     text-align: center;
-    background-color: gray;
+    background-color: rgb(189, 189, 189);
     padding: 20px;
     margin: 10px;
-    width: 200px;
+    width: 150px;
+    max-width: 200px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid black;
 }
-.puppy-card:hover {
-    transform: scale(1.1);
+
+.puppy-card-container:hover {
     cursor: pointer;
+}
+.puppy-card {
+    background-color: red;
+    width: 200px;
 }
 
 .dog-image {
@@ -40,6 +40,29 @@
     max-height: 200px;
 }
 
-.card-divider {
+@media only screen and (max-width: 600px) {
+    .dog-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+/* .card-divider {
     width: 200px;
+} */
+
+.toggle-button {
+    border: 0;
+    padding: 2px;
+    margin: 10px;
+    width: 60%;
+    background-color: rgb(91, 91, 91);
+    color: white;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.toggle-button:hover {
+    background-color: grey;
+    cursor: pointer;
 }

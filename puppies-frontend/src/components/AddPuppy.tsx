@@ -35,20 +35,24 @@ const AddPuppy = ({ setCounter }: AddPuppyComponentProps) => {
 
     return (
         <>
-            <div>
-                <form className="add-puppy_form" onSubmit={handleSubmit}>
-                    <label htmlFor="name">
+            <div className='add-puppy-container'>
+                <form className="puppy_form" onSubmit={handleSubmit}>
+                    <h1 className='add-puppy-title'> Add a Dog to the Dogalogue</h1>
+                    {/* <label htmlFor="name">
                     Name:
-                        <input type="text" id="name" name="name" value={formData.name} onChange={onFormChange} required />
-                    </label>
-                    <label htmlFor="breed">
+                    </label> */}
+                        <input className='input' type="text" id="name" name="name" placeholder='Name' value={formData.name} onChange={onFormChange} required />
+                    
+                    {/* <label htmlFor="breed">
                     Breed:
-                        <input type="text" id="breed" name="breed" value={formData.breed} onChange={onFormChange} required />
+                    </label> */}
+                        <input type="text" className="input" id="breed" name="breed" placeholder='Breed' value={formData.breed} onChange={onFormChange} required />
+                    
+                    <label htmlFor="birth_date">
+                    Date of Birth:
                     </label>
-                    <label htmlFor="Birth day">
-                    Birth date:
-                        <input type="date" id="birth_date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
-                    </label>
+                        <input type="date" className="input" id="birth_date" name="birth_date"  value={formData.birth_date} onChange={onFormChange} required />
+                    
                     <button className="submit-button" type="submit" >Add Dog</button>
                 </form>
             </div>

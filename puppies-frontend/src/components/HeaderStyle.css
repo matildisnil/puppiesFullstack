@@ -1,0 +1,17 @@
+
+.header-text {
+    /* background-color: grey; */
+    font-size: 45px;
+    color: white;
+    background-color: rgb(35, 35, 35);
+    padding: 20px 0;
+    margin-top: 0px;
+    text-align: center;
+    border-bottom: white 1px solid;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    .header-text {
+        font-size: 20px;
+    }
+}

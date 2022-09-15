@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import {Puppy} from '../types';
+import { Puppy } from '../types';
 import "./AddPuppyStyle.css";
+import "./UpdatePuppyStyle.css";
 
 interface UpdatePuppyComponentProps {
     puppy: Puppy,
@@ -10,22 +11,23 @@ interface UpdatePuppyComponentProps {
     setUpdateIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const UpdatePuppy = ({puppy, setCounter, updateIsActive, setUpdateIsActive}: UpdatePuppyComponentProps) => {
+const UpdatePuppy = ({ puppy, setCounter, updateIsActive, setUpdateIsActive }: UpdatePuppyComponentProps) => {
     const [formData, setFormData] = useState({
         name: puppy.name,
         breed: puppy.breed,
         birth_date: '2000-01-01'
     });
-    
+
     const onFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData((prev) => {
-            return {...prev, [e.target.name]: e.target.value}  
+            return { ...prev, [e.target.name]: e.target.value }
         })
     }
-    
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const postToBackend = async() => {
+        e.stopPropagation();
+        const postToBackend = async () => {
             await fetch(`http://localhost:8080/api/puppies/${puppy.id}`, {
                 method: 'PUT',
                 headers: {
@@ -44,21 +46,21 @@ const UpdatePuppy = ({puppy, setCounter, updateIsActive, setUpdateIsActive}: Upd
     return (
         <>
             <div>
-                <form className="add-puppy_form" onSubmit={handleSubmit}> 
-                    <label htmlFor="name">
-                        Name:
-                        <input type="text" id="name" name="name" value={formData.name} onChange={onFormChange} required/>
-                    </label>
-                    <label htmlFor="breed">
-                        Breed:
-                        <input type="text" id="breed" name="breed" value={formData.breed} onChange={onFormChange} required/>
-                    </label>
-                    <label htmlFor="Birth day">
-                        Age:
-                        <input type="date" id="age" name="birth_date" value={formData.birth_date} onChange={onFormChange} required/>
-                    </label>
-                    <button className="submit-button" type="submit" >Update Dog</button>
-                </form>
+                    <form className="update-puppy_form" onSubmit={handleSubmit}>
+                        <label htmlFor="update-name">
+                            Name:
+                        </label>
+                        <input type="text" id="update-name" name="name" value={formData.name} onChange={onFormChange} required />
+                        <label htmlFor="update-breed">
+                            Breed:
+                        </label>
+                        <input type="text" id="update-breed" name="breed" value={formData.breed} onChange={onFormChange} required />
+                        <label htmlFor="update-birth-date">
+                            Date of Birth:
+                        </label>
+                        <input type="date" id="update-birth-date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
+                        <button className="update-submit-button" type="submit" >Update Dog</button>
+                    </form>
             </div>
         </>
     )

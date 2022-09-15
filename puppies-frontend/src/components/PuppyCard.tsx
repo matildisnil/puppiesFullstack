@@ -13,7 +13,6 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
   const [isActive, setIsActive] = useState(false);
   const [updateIsActive, setUpdateIsActive] = useState(false);
   const [dogImageLink, setDogImageLink] = useState('');
-  // let dogImageLink: string = '';
 
   useEffect(() => {
     const getDogPic = async () => {
@@ -37,8 +36,14 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
     setIsActive(!isActive);
   };
 
+  const toggleUpdateClass = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    setUpdateIsActive(!updateIsActive)
+  }
+
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    e.stopPropagation();
     const deleteDog = async () => {
       await fetch(`http://localhost:8080/api/puppies/${puppy.id}`, {
         method: 'DELETE',
@@ -56,20 +61,20 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
 
   return (
     <>
-      <div className="puppy-card-container" >
-        <div onClick={toggleClass} className="puppy-card" >{puppy.name} </div>
+      <div onClick={toggleClass} className="puppy-card-container" >
+        <div className="puppy-card" >{puppy.name} </div>
         {/* dropdowninfo */}
         <div className={isActive ? 'show-details' : "no-details"}>
           <div>Breed: {puppy.breed} </div>
           <div >Birth Date: {puppy.birth_date} </div>
-          <button onClick={() => setUpdateIsActive(!updateIsActive)}>{updateIsActive ? 'Close' : 'Update details'}</button>
+          <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
           <div className={updateIsActive ? 'show-details' : "no-details"}>
             <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
           </div>
           <img className="dog-image" src={dogImageLink} alt="Dog" />
-          <button onClick={handleDelete}>Kill your puppy</button>
+          <button className="toggle-button" onClick={handleDelete}>Kill your puppy</button>
         </div>
-        <hr className="card-divider" />
+        {/* <hr className="card-divider" /> */}
       </div>
     </>
   )

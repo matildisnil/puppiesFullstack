@@ -1,10 +1,10 @@
 import React from 'react'
-import "./Header.css"
+import "./HeaderStyle.css"
 
 const Header = () => { 
 return (
     <>
-    <h1 className='header-text'>Welcome to our Dog bragging website</h1>
+    <h1 className='header-text'>Dogalogue</h1>
     </>
   )
 }

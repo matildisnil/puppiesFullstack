@@ -1,7 +1,25 @@
-.add-puppy_form {
-    flex-direction: column;
+.add-puppy-container {
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 20px;
+    background-color: rgb(107, 107, 107);
+    width: 70%;
+    align-self: center;
+}
+
+.puppy_form {
+    padding-top: 10px;
     display: flex;
-    color: white;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.add-puppy-title {
+    font-size: large;
+    color: rgb(34, 34, 34);
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 .submit-button {
     width: 100px;
@@ -10,11 +28,58 @@
     margin: 10px auto;
     align-self: center;
     border: hidden;
-    background-color: rgb(90, 90, 90);
-    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.249);
+    color: rgb(216, 216, 216);
     border-radius: 10px;
+    border: 1px solid rgba(251, 240, 188, 0.177);
 }
 .submit-button:hover {
-    background-color: grey;
+    background-color: rgb(107, 107, 107);
     cursor: pointer;
+    border: 1px solid wheat;
+}
+
+.puppy_form input {
+    padding: 5px;
+    margin: 6px;
+    width: 142px;
+    align-self: center;
+}
+
+.input {
+    width: 100%;
+    margin: 3%;
+    padding: 12px 24px;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgb(241, 236, 214);
+    /* color: rgb(227, 222, 222); */
+    background-color: rgba(255, 255, 255, 0.247);
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 10px;
+    border: 1px solid rgb(241, 236, 214);
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+}
+.input::placeholder {
+    color: rgb(241, 236, 214);
+}
+
+
+.input:focus {
+    outline: 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgb(241, 236, 214);
+    background-position: 100% center;
+    border-radius: 0px;
+    }
+
+label {
+    color: rgb(34, 34, 34);
+    font-size: small;
 }
