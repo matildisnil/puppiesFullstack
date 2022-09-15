@@ -61,20 +61,23 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
 
   return (
     <>
-      <div onClick={toggleClass} className="puppy-card-container" >
+{/*         {isActive ? <div>IsActive is true, show one component</div>:
+     <div> The IsActive is false, show another component  </div> } */}
+      <div  className="puppy-card-container" >
         <div className="puppy-card" >{puppy.name} </div>
+        <button className='details-button' onClick={toggleClass}> Show Details</button>
         {/* dropdowninfo */}
-        <div className={isActive ? 'show-details' : "no-details"}>
-          <div>Breed: {puppy.breed} </div>
-          <div >Birth Date: {puppy.birth_date} </div>
-          <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
-          <div className={updateIsActive ? 'show-details' : "no-details"}>
-            <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
+          <div className={isActive ? 'show-details' : "no-details"}>
+            <div> Breed: <b> {puppy.breed}</b> </div>
+            <div >Birth Date: <b>{puppy.birth_date}</b> </div>
+            <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
+            <hr/>
+            <div className={updateIsActive ? 'show-details' : "no-details"}>
+              <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
+            </div>
+            <img className="dog-image" src={dogImageLink} alt="Dog" />
+            <button className="toggle-button" onClick={handleDelete}>Kill your puppy</button>
           </div>
-          <img className="dog-image" src={dogImageLink} alt="Dog" />
-          <button className="toggle-button" onClick={handleDelete}>Kill your puppy</button>
-        </div>
-        {/* <hr className="card-divider" /> */}
       </div>
     </>
   )

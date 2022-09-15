@@ -15,13 +15,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    max-width: 250px;
+    width: 250px;
     text-align: center;
     background-color: rgb(189, 189, 189);
     padding: 20px;
     margin: 10px;
-    width: 150px;
-    max-width: 200px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid black;
@@ -31,17 +29,32 @@
     cursor: pointer;
 }
 .puppy-card {
-    background-color: red;
+    font-size: x-large;
     width: 200px;
+    padding-bottom: 10px;
 }
-
+.details-button {
+    border: 0;
+    padding: 2px;
+    margin: 10px;
+    width: 60%;
+    background-color: rgb(91, 91, 91);
+    color: white;
+    border-radius: 5px;
+    user-select: none;
+}
+.details-button:hover {
+    background-color: grey;
+    cursor: pointer;
+}
 .dog-image {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 @media only screen and (max-width: 600px) {
     .dog-image {
+        padding-top: 5px;
         max-width: 100px;
         max-height: 100px;
     }
