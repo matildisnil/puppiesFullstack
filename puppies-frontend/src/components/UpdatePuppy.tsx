@@ -28,7 +28,7 @@ const UpdatePuppy = ({ puppy, setCounter, updateIsActive, setUpdateIsActive }: U
         e.preventDefault();
         e.stopPropagation();
         const postToBackend = async () => {
-            await fetch(`http://localhost:8080/api/puppies/${puppy.id}`, {
+            await fetch(`http://localhost:8080/api/puppies/${puppy._id}`, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',

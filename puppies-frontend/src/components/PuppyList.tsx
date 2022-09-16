@@ -10,7 +10,7 @@ interface PuppyListComponentProps {
 
 const PuppyList = ({puppies, setCounter}: PuppyListComponentProps) => {
   return (
-    <div className="puppy-list">{puppies.map(puppy =><PuppyCard puppy={puppy} key={puppy.id} setCounter={setCounter} />)}</div>
+    <div className="puppy-list">{puppies.map(puppy =><PuppyCard puppy={puppy} key={puppy._id} setCounter={setCounter} />)}</div>
   )
 }
 

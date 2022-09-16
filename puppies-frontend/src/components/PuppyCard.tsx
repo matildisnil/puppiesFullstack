@@ -44,8 +44,9 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log(puppy._id, typeof puppy._id, 'idgate');
     const deleteDog = async () => {
-      await fetch(`http://localhost:8080/api/puppies/${puppy.id}`, {
+      await fetch(`http://localhost:8080/api/puppies/${puppy._id}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
