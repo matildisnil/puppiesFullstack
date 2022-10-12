@@ -4,26 +4,6 @@ import { Request, Response, Application } from 'express';
 import { DBPuppy, IPuppy } from "./types";
 import cors from "cors";
 
-
-// const puppies: Puppy[] = [
-//   {"id": 1,
-//   "breed": "Pomeranian",
-//   "name": "Amadeus",
-//   "birth_date": "2020-11-05"},
-//   {"id": 2,
-//   "breed": "Poodle",
-//   "name": "Rambo",
-//   "birth_date": "2018-02-07"},
-//   {"id": 3,
-//   "breed": "Golden retriever",
-//   "name": "Lady Anne",
-//   "birth_date": "2021-10-25"},
-//   {"id": 4,
-//   "breed": "Great Dane",
-//   "name": "Gandalf",
-//   "birth_date": "1900-01-01"},
-// ];
-
 const formatRequestPuppy = (requestPuppy:IPuppy) => {
   return {
     name: requestPuppy.name,
@@ -32,18 +12,10 @@ const formatRequestPuppy = (requestPuppy:IPuppy) => {
   }
 }
 
-// const formatResponsePuppy = (dbPuppy: DBPuppy) => {
-//   return {
-//     id: dbPuppy._id.toString(),
-//     name: dbPuppy.name,
-//     breed: dbPuppy.breed,
-//     birth_date: dbPuppy.birth_date,
-//   }
-// }
-
 const app: Application = express();
 app.use(cors<Request>());
 app.use(express.json());
+app.use(express.static('static'));
 
 app.get('/api/test', (_req: Request, res: Response) => {
   return res.status(200).json({ test: 'is working as it should' });
@@ -89,12 +61,9 @@ app.post('/api/puppies', async (req: Request, res: Response) => {
     }
     // maybe take the properties one by one instead, so that nothing else follows along
     const newPuppy: IPuppy = formatRequestPuppy(req.body);
-    console.log(newPuppy);
     await connectToDB();
     const puppy = new PuppyModel(newPuppy);
     await puppy.save();
-    // console.log(puppy._id);
-    // const responsePuppy = formatResponsePuppy(puppy);
     return res.status(201).json({ puppy: puppy });
   } catch (err) {
     return res.status(500).json({message: err});
