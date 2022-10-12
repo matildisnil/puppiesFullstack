@@ -59,6 +59,7 @@ const UpdatePuppy = ({ puppy, setCounter, updateIsActive, setUpdateIsActive }: U
                             Date of Birth:
                         </label>
                         <input type="date" id="update-birth-date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
+                        <button className="update-submit-button" onClick={() => setUpdateIsActive(prev => !prev)} type="button" >Close</button>
                         <button className="update-submit-button" type="submit" >Update Dog</button>
                     </form>
             </div>

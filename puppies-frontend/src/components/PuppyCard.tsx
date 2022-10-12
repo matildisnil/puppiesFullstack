@@ -10,7 +10,7 @@ interface PuppyCardProps {
 }
 
 const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   const [updateIsActive, setUpdateIsActive] = useState(false);
   const [dogImageLink, setDogImageLink] = useState('');
 
@@ -66,18 +66,18 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
      <div> The IsActive is false, show another component  </div> } */}
       <div  className="puppy-card-container" >
         <div className="puppy-card" >{puppy.name} </div>
-        <button className='details-button' onClick={toggleClass}> Show Details</button>
+        <button className='details-button' onClick={toggleClass}> {isActive ? 'Hide Details': 'Show Details'}</button>
         {/* dropdowninfo */}
           <div className={isActive ? 'show-details' : "no-details"}>
             <div> Breed: <b> {puppy.breed}</b> </div>
             <div >Birth Date: <b>{puppy.birth_date}</b> </div>
             <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
             <hr/>
-            <div className={updateIsActive ? 'show-details' : "no-details"}>
+            <div className={updateIsActive ? 'show-form' : "no-form"}>
               <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
             </div>
             <img className="dog-image" src={dogImageLink} alt="Dog" />
-            <button className="toggle-button" onClick={handleDelete}>Kill your puppy</button>
+            <button className="toggle-button" onClick={handleDelete}>Delete puppy</button>
           </div>
       </div>
     </>

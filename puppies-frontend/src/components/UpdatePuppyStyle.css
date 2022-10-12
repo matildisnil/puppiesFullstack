@@ -1,19 +1,66 @@
+@media screen and (max-width: 600px) { 
     .update-puppy_form {
+        color: rgb(255, 255, 255);
+        font-size: large;
         display: flex;
         flex-direction: column;
-        color: rgb(255, 255, 255);
         justify-content: center;
         align-content: center;
         text-align: center;
+        border: 5px solid rgb(61, 61, 61);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        background: rgb(35, 35, 35);
+        position: fixed;
+        width: 55%;
+        height: fit-content;
+        top: 25%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 10;
     }
+}
+@media screen and (min-width: 601px) { 
+
+    .update-puppy_form {
+        color: rgb(255, 255, 255);
+        font-size: large;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        border: 5px solid rgb(61, 61, 61);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        background: rgb(35, 35, 35);
+        position: fixed;
+        width: 25%;
+        height: fit-content;
+        top: 20%;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 10;
+    }
+}
+
     .update-puppy_form label {
         margin-bottom: -5px;
+        margin-top: 15px;
+        color: #fff;
+        font-size: larger;
     }
     .update-submit-button {
         width: 100px;
         padding: 10px 0px 10px;
         font-size: 16px;
-        margin: 3px 0px -5px;
+        margin: 20px 0px 5px;
         align-self: center;
         border: hidden;
         background-color: rgb(98, 96, 92);
@@ -32,23 +79,18 @@
         width: 50%;
         height: 3px;
         margin: 3%;
-        padding: 8px 16px;
-        font-size: 90%;
+        padding: 10px 18px;
+        font-size: 75%;
         text-align: center;
         line-height: 18px;
-        color: rgb(241, 236, 214);
+        color: rgb(255, 255, 255);
         background-color: rgba(255, 255, 255, 0.247);
         background-repeat: no-repeat;
         background-size: 18px 18px;
         background-position: 95% center;
-        border-radius: 8px;
+        border-radius: 6px;
         border: 1px solid rgb(241, 236, 214);
         transition: all 250ms ease-in-out;
-        backface-visibility: hidden;
-        transform-style: preserve-3d;
-    }
-    .update-puppy_form input::placeholder {
-        color: rgb(241, 236, 214);
     }
     
     

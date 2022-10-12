@@ -1,3 +1,10 @@
+@media screen and (min-width: 601px) { 
+    .details-button {
+       display: none;
+    }
+}
+
+
 .show-details {
     background-color: rgb(170, 170, 170);
     padding: 10px;
@@ -5,6 +12,16 @@
 }
 
 .no-details {
+    display: none;
+    background-color: rgb(187, 187, 187);
+}
+
+.show-form {
+    background-color: rgb(170, 170, 170);
+    border-radius: 10px;
+}
+
+.no-form {
     display: none;
     background-color: rgb(187, 187, 187);
 }
@@ -33,20 +50,7 @@
     width: 200px;
     padding-bottom: 10px;
 }
-.details-button {
-    border: 0;
-    padding: 2px;
-    margin: 10px;
-    width: 60%;
-    background-color: rgb(91, 91, 91);
-    color: white;
-    border-radius: 5px;
-    user-select: none;
-}
-.details-button:hover {
-    background-color: grey;
-    cursor: pointer;
-}
+
 .dog-image {
     max-width: 100px;
     max-height: 100px;
@@ -57,6 +61,20 @@
         padding-top: 5px;
         max-width: 100px;
         max-height: 100px;
+    }
+    .details-button {
+        border: 0;
+        padding: 2px;
+        margin: 10px;
+        width: 60%;
+        background-color: rgb(91, 91, 91);
+        color: white;
+        border-radius: 5px;
+        user-select: none;
+    }
+    .details-button:hover {
+        background-color: grey;
+        cursor: pointer;
     }
 }
 

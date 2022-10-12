@@ -7,7 +7,8 @@
     "compile": "tsc --outDir js",
     "compile:watch": "npm run compile -- --watch",
     "test": "jest --watchAll --silent",
-    "dev": "nodemon ./js/server.js"
+    "dev": "nodemon ./js/server.js",
+    "start:prod": "node ./js/server.js"
   },
   "repository": {
     "type": "git",

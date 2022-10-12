@@ -1,4 +1,4 @@
-import { Schema, model, connect, ObjectId } from 'mongoose';
+import { Schema, model, connect } from 'mongoose';
 import { IPuppy } from './types';
 import * as dotenv from 'dotenv';
 dotenv.config();
