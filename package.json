@@ -9,7 +9,7 @@
     "test": "jest --watchAll --silent",
     "dev": "nodemon ./js/server.js",
     "start": "node ./js/server.js",
-    "postinstall": "tsc && mv -i -v puppies-frontent/build/. js/static/. && rm -v -rf src"
+    "postinstall": "tsc && mv -i -v static/. js/static/. && rm -v -rf src"
   },
   "repository": {
     "type": "git",
