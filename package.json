@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc --outDir js",
+    "compile": "tsc --outDir dist",
     "compile:watch": "npm run compile -- --watch",
     "test": "jest --watchAll --silent",
-    "dev": "nodemon ./js/server.js",
-    "start": "node ./js/server.js",
-    "postinstall": "tsc && mkdir js/static && mv -i -v static/. js/static/. && rm -v -rf src"
+    "dev": "nodemon ./dist/server.js",
+    "start": "node ./dist/server.js",
+    "postinstall": "tsc && mkdir dist/static && mv -i -v static/. dist/static/. && rm -v -rf src"
   },
   "repository": {
     "type": "git",
