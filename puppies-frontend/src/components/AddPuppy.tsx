@@ -51,7 +51,7 @@ const AddPuppy = ({ setCounter }: AddPuppyComponentProps) => {
                     <label htmlFor="birth_date">
                     Date of Birth:
                     </label>
-                        <input type="date" className="input" id="birth_date" name="birth_date"  value={formData.birth_date} onChange={onFormChange} required />
+                        <input type="date" className="input" id="birth_date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
                     
                     <button className="submit-button" type="submit" >Add Dog</button>
                 </form>
