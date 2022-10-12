@@ -8,12 +8,14 @@
     "compile:watch": "npm run compile -- --watch",
     "test": "jest --watchAll --silent",
     "dev": "nodemon ./js/server.js",
-    "start": "node ./js/server.js"
+    "start": "node ./js/server.js",
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/appliedtechnology/addons-ts-lab-puppiesApi.git"
   },
+  "engines": { "node": "16.13.2" },
   "keywords": [],
   "author": "",
   "license": "ISC",
