@@ -11,7 +11,7 @@
     "watch-ts": "tsc -w",
     "dev": "nodemon ./dist/server.js",
     "start": "node dist/server.js",
-    "postinstall": "tsc && mkdir dist/static && mv -i -v static/. dist/static/. && rm -v -rf src && rm -v -rf puppies-frontend"
+    "postinstall": "tsc && mv -i -v static dist/ && rm -v -rf src"
   },
   "repository": {
     "type": "git",
