@@ -13,7 +13,9 @@ const formatRequestPuppy = (requestPuppy:IPuppy) => {
 }
 
 const app: Application = express();
-app.use(cors<Request>());
+if(process.env.ENV !== 'production'){
+  app.use(cors<Request>());
+}
 app.use(express.json());
 app.use(express.static('static'));
 
