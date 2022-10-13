@@ -17,7 +17,7 @@ if(process.env.ENV !== 'production'){
   app.use(cors<Request>());
 }
 app.use(express.json());
-app.use(express.static('static'));
+app.use(express.static('public'));
 
 app.get('/api/test', (_req: Request, res: Response) => {
   return res.status(200).json({ test: 'is working as it should' });
@@ -105,5 +105,7 @@ app.delete('/api/puppies/:id', async (req: Request<{ id: string}>, res: Response
     return res.status(404).json({message: err});
   }
 });
+
+// app.get('*', (_, res) => res.sendFile(__dirname + '/static/index.html'));
 
 export default app;
