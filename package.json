@@ -11,7 +11,7 @@
     "watch-ts": "tsc -w",
     "dev": "nodemon ./dist/server.js",
     "start": "node dist/server.js",
-    "postinstall": "tsc && rm -v -rf src"
+    "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src"
   },
   "repository": {
     "type": "git",
