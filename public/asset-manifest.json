@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.0213edc3.css",
-    "main.js": "/static/js/main.3bef29e5.js",
-    "static/js/787.33ba54e1.chunk.js": "/static/js/787.33ba54e1.chunk.js",
-    "index.html": "/index.html",
-    "main.0213edc3.css.map": "/static/css/main.0213edc3.css.map",
-    "main.3bef29e5.js.map": "/static/js/main.3bef29e5.js.map",
-    "787.33ba54e1.chunk.js.map": "/static/js/787.33ba54e1.chunk.js.map"
+    "main.css": "https://dogalogue.herokuapp.com/static/css/main.0213edc3.css",
+    "main.js": "https://dogalogue.herokuapp.com/static/js/main.e18e97a6.js",
+    "static/js/787.33ba54e1.chunk.js": "https://dogalogue.herokuapp.com/static/js/787.33ba54e1.chunk.js",
+    "index.html": "https://dogalogue.herokuapp.com/index.html",
+    "main.0213edc3.css.map": "https://dogalogue.herokuapp.com/static/css/main.0213edc3.css.map",
+    "main.e18e97a6.js.map": "https://dogalogue.herokuapp.com/static/js/main.e18e97a6.js.map",
+    "787.33ba54e1.chunk.js.map": "https://dogalogue.herokuapp.com/static/js/787.33ba54e1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0213edc3.css",
-    "static/js/main.3bef29e5.js"
+    "static/js/main.e18e97a6.js"
   ]
 }
