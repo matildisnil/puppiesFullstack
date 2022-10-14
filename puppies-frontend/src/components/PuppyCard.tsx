@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import UpdatePuppy from './UpdatePuppy';
 import { DogApiResponse, Puppy } from '../types';
 import "./PuppyCardStyle.css";
+import { backendUri } from '../App'
 
-const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/';
+// const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com';
 
 interface PuppyCardProps {
   puppy: Puppy,

@@ -5,7 +5,7 @@ import Header from './components/Header';
 import { Puppy } from './types';
 import './App.css';
 
-const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/'; 
+export const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com'; 
 
 
 function App() {

@@ -4,7 +4,7 @@ import { Puppy } from '../types';
 import "./AddPuppyStyle.css";
 import "./UpdatePuppyStyle.css";
 
-const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/'; 
+const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com';
 
 interface UpdatePuppyComponentProps {
     puppy: Puppy,
@@ -48,22 +48,22 @@ const UpdatePuppy = ({ puppy, setCounter, updateIsActive, setUpdateIsActive }: U
     return (
         <>
             <div>
-                    <form className="update-puppy_form" onSubmit={handleSubmit}>
-                        <label htmlFor="update-name">
-                            Name:
-                        </label>
-                        <input type="text" id="update-name" name="name" value={formData.name} onChange={onFormChange} required />
-                        <label htmlFor="update-breed">
-                            Breed:
-                        </label>
-                        <input type="text" id="update-breed" name="breed" value={formData.breed} onChange={onFormChange} required />
-                        <label htmlFor="update-birth-date">
-                            Date of Birth:
-                        </label>
-                        <input type="date" id="update-birth-date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
-                        <button className="update-submit-button" onClick={() => setUpdateIsActive(prev => !prev)} type="button" >Close</button>
-                        <button className="update-submit-button" type="submit" >Update Dog</button>
-                    </form>
+                <form className="update-puppy_form" onSubmit={handleSubmit}>
+                    <label htmlFor="update-name">
+                        Name:
+                    </label>
+                    <input type="text" id="update-name" name="name" value={formData.name} onChange={onFormChange} required />
+                    <label htmlFor="update-breed">
+                        Breed:
+                    </label>
+                    <input type="text" id="update-breed" name="breed" value={formData.breed} onChange={onFormChange} required />
+                    <label htmlFor="update-birth-date">
+                        Date of Birth:
+                    </label>
+                    <input type="date" id="update-birth-date" name="birth_date" value={formData.birth_date} onChange={onFormChange} required />
+                    <button className="update-submit-button" onClick={() => setUpdateIsActive(prev => !prev)} type="button" >Close</button>
+                    <button className="update-submit-button" type="submit" >Update Dog</button>
+                </form>
             </div>
         </>
     )
