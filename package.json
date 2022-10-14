@@ -2,7 +2,7 @@
   "name": "addons-ts-lab-puppiesapi",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "compile": "tsc --outDir dist",
     "compile:watch": "npm run compile -- --watch",
