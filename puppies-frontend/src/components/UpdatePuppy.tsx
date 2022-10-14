@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { Puppy } from '../types';
 import "./AddPuppyStyle.css";
 import "./UpdatePuppyStyle.css";
-
-const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com';
+import { backendUri } from '../App'
 
 interface UpdatePuppyComponentProps {
     puppy: Puppy,
