@@ -3,6 +3,7 @@ import { connectToDB, PuppyModel } from './database';
 import { Request, Response, Application } from 'express';
 import { DBPuppy, IPuppy } from "./types";
 import cors from "cors";
+import path from 'path';
 
 const formatRequestPuppy = (requestPuppy:IPuppy) => {
   return {
@@ -13,11 +14,22 @@ const formatRequestPuppy = (requestPuppy:IPuppy) => {
 }
 
 const app: Application = express();
-if(process.env.ENV !== 'production'){
-  app.use(cors<Request>());
-}
+// if(process.env.NODE_ENV !== 'production'){
+// }
+
+app.use(cors<Request>());
+// console.log(process.env.NODE_ENV);
+// fungerar lokalt, men inte deployed - html-filen hittas, men inte javascript
+
+//fungerar inte alls
+// app.use('*', express.static(path.join(__dirname, '../public')));
+// console.log(path.join(__dirname, '../public'));
+app.use(express.static(path.join(__dirname, '../public')));
+// console.log(path.join(__dirname, 'public'));
+
+// app.use(express.static('public'));
+
 app.use(express.json());
-app.use(express.static('public'));
 
 app.get('/api/test', (_req: Request, res: Response) => {
   return res.status(200).json({ test: 'is working as it should' });
@@ -106,6 +118,6 @@ app.delete('/api/puppies/:id', async (req: Request<{ id: string}>, res: Response
   }
 });
 
-// app.get('*', (_, res) => res.sendFile(__dirname + '/static/index.html'));
+// app.get('*', (_, res) => res.sendFile(__dirname + '/public/index.html'));
 
 export default app;
