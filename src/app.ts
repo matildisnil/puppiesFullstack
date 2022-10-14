@@ -24,7 +24,8 @@ app.use(cors<Request>());
 //fungerar inte alls
 // app.use('*', express.static(path.join(__dirname, '../public')));
 // console.log(path.join(__dirname, '../public'));
-app.use(express.static(path.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, 'public')));
 // console.log(path.join(__dirname, 'public'));
 
 // app.use(express.static('public'));
