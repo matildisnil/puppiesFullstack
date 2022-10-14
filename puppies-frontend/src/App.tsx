@@ -5,6 +5,8 @@ import Header from './components/Header';
 import { Puppy } from './types';
 import './App.css';
 
+const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/'; 
+
 
 function App() {
   const [puppies, setPuppies] = useState<Puppy[]>([]);
@@ -12,9 +14,8 @@ function App() {
 
   useEffect(() => {
     const fetchFromApi = async() => {
-      const response = await fetch('http://localhost:8080/api/puppies');
+      const response = await fetch(`${backendUri}/api/puppies`);
       const parsedResponse: {puppies: Puppy[]} = await response.json();
-      console.log(parsedResponse);
       setPuppies(parsedResponse.puppies);
     }
     fetchFromApi();

@@ -16,8 +16,7 @@ async function connectToDB() {
         await connect(`mongodb+srv://matilda:${process.env.MONGODB_PASSWORD}@cluster0.ahsfpwx.mongodb.net/?retryWrites=true&w=majority`, {
             socketTimeoutMS: 3000
         });
-    /*  setTimeout(() => mongoose.connection.close(), 3000);
- */    } catch (err){
+    } catch (err){
         console.log(err)
     } 
 }

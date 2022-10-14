@@ -14,44 +14,25 @@ const formatRequestPuppy = (requestPuppy:IPuppy) => {
 }
 
 const app: Application = express();
-// if(process.env.NODE_ENV !== 'production'){
-// }
 
 app.use(cors<Request>());
-// console.log(process.env.NODE_ENV);
-// fungerar lokalt, men inte deployed - html-filen hittas, men inte javascript
-
-//fungerar inte alls
-// app.use('*', express.static(path.join(__dirname, '../public')));
-// console.log(path.join(__dirname, '../public'));
-// app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, 'public')));
-// console.log(path.join(__dirname, 'public'));
-
-// app.use(express.static('public'));
-
 app.use(express.json());
 
 app.get('/api/test', (_req: Request, res: Response) => {
   return res.status(200).json({ test: 'is working as it should' });
 });
 
-
-// DB version
 app.get('/api/puppies', async (_req: Request, res: Response) => {
   try {
     await connectToDB();
     const puppies2: DBPuppy[] = await PuppyModel.find();
-    // maybe unneccessary formatting, but feels safer
-    // const responsePuppies: StringPuppy[] = puppies2.map(pup => formatResponsePuppy(pup));
-    // console.log(responsePuppies);
     return res.status(200).json({ puppies: puppies2 });
   } catch (err) {
     return res.status(500).json({message: err});
   }
 });
 
-// DB version
 app.get('/api/puppies/:id', async (req: Request<{ id: string}>, res: Response) => {
   try {
     await connectToDB();
@@ -63,7 +44,6 @@ app.get('/api/puppies/:id', async (req: Request<{ id: string}>, res: Response) =
   } catch (err) {
     return res.status(500).json({message: err});
   }
-
 });
 
 app.post('/api/puppies', async (req: Request, res: Response) => {
@@ -74,7 +54,6 @@ app.post('/api/puppies', async (req: Request, res: Response) => {
       return res.status(400).json({
         message: "Please supply the new pup on the form \{\"breed\": \"string\",\"name\": \"string\", \"birth_date\": \"string\"\}"});
     }
-    // maybe take the properties one by one instead, so that nothing else follows along
     const newPuppy: IPuppy = formatRequestPuppy(req.body);
     await connectToDB();
     const puppy = new PuppyModel(newPuppy);
@@ -118,7 +97,5 @@ app.delete('/api/puppies/:id', async (req: Request<{ id: string}>, res: Response
     return res.status(404).json({message: err});
   }
 });
-
-// app.get('*', (_, res) => res.sendFile(__dirname + '/public/index.html'));
 
 export default app;

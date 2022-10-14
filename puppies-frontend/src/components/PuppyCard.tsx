@@ -4,6 +4,8 @@ import UpdatePuppy from './UpdatePuppy';
 import { DogApiResponse, Puppy } from '../types';
 import "./PuppyCardStyle.css";
 
+const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/';
+
 interface PuppyCardProps {
   puppy: Puppy,
   setCounter: React.Dispatch<React.SetStateAction<number>>
@@ -16,7 +18,6 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
 
   useEffect(() => {
     const getDogPic = async () => {
-      // const response = await fetch(`https://dog.ceo/api/breed/${puppy.breed.toLowerCase()}/images/random`);
       const splitBreed = puppy.breed.toLowerCase().split(' ');
       const breedString = splitBreed[1] ? splitBreed[1] + '/' + splitBreed[0] : splitBreed[0];
       const response = await fetch(`https://dog.ceo/api/breed/${breedString}/images/random`);
@@ -44,16 +45,14 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
   const handleDelete = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(puppy._id, typeof puppy._id, 'idgate');
     const deleteDog = async () => {
-      await fetch(`http://localhost:8080/api/puppies/${puppy._id}`, {
+      await fetch(`${backendUri}/api/puppies/${puppy._id}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
       });
-      //const parsedResponse = await response.json();
       setCounter(prev => prev + 1);
     }
     deleteDog();
@@ -62,23 +61,21 @@ const PuppyCard = ({ puppy, setCounter }: PuppyCardProps) => {
 
   return (
     <>
-{/*         {isActive ? <div>IsActive is true, show one component</div>:
-     <div> The IsActive is false, show another component  </div> } */}
-      <div  className="puppy-card-container" >
+      <div className="puppy-card-container" >
         <div className="puppy-card" >{puppy.name} </div>
-        <button className='details-button' onClick={toggleClass}> {isActive ? 'Hide Details': 'Show Details'}</button>
+        <button className='details-button' onClick={toggleClass}> {isActive ? 'Hide Details' : 'Show Details'}</button>
         {/* dropdowninfo */}
-          <div className={isActive ? 'show-details' : "no-details"}>
-            <div> Breed: <b> {puppy.breed}</b> </div>
-            <div >Birth Date: <b>{puppy.birth_date}</b> </div>
-            <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
-            <hr/>
-            <div className={updateIsActive ? 'show-form' : "no-form"}>
-              <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
-            </div>
-            <img className="dog-image" src={dogImageLink} alt="Dog" />
-            <button className="toggle-button" onClick={handleDelete}>Delete puppy</button>
+        <div className={isActive ? 'show-details' : "no-details"}>
+          <div> Breed: <b> {puppy.breed}</b> </div>
+          <div >Birth Date: <b>{puppy.birth_date}</b> </div>
+          <button className="toggle-button" onClick={toggleUpdateClass}>{updateIsActive ? 'Close' : 'Update Details'}</button>
+          <hr />
+          <div className={updateIsActive ? 'show-form' : "no-form"}>
+            <UpdatePuppy puppy={puppy} setCounter={setCounter} updateIsActive={updateIsActive} setUpdateIsActive={setUpdateIsActive} />
           </div>
+          <img className="dog-image" src={dogImageLink} alt="Dog" />
+          <button className="toggle-button" onClick={handleDelete}>Delete puppy</button>
+        </div>
       </div>
     </>
   )

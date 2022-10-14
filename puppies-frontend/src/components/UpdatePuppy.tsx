@@ -4,6 +4,8 @@ import { Puppy } from '../types';
 import "./AddPuppyStyle.css";
 import "./UpdatePuppyStyle.css";
 
+const backendUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://dogalogue.herokuapp.com/'; 
+
 interface UpdatePuppyComponentProps {
     puppy: Puppy,
     setCounter: React.Dispatch<React.SetStateAction<number>>,
@@ -28,7 +30,7 @@ const UpdatePuppy = ({ puppy, setCounter, updateIsActive, setUpdateIsActive }: U
         e.preventDefault();
         e.stopPropagation();
         const postToBackend = async () => {
-            await fetch(`http://localhost:8080/api/puppies/${puppy._id}`, {
+            await fetch(`${backendUri}/api/puppies/${puppy._id}`, {
                 method: 'PUT',
                 headers: {
                     'Accept': 'application/json',

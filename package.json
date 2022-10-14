@@ -1,5 +1,5 @@
 {
-  "name": "addons-ts-lab-puppiesapi",
+  "name": "dogalogue",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appliedtechnology/addons-ts-lab-puppiesApi.git"
+    "url": "git+https://github.com/matildisnil/puppiesFullstack"
   },
   "engines": {
     "node": "16.13.2"
@@ -23,10 +23,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/appliedtechnology/addons-ts-lab-puppiesApi/issues"
-  },
-  "homepage": "https://github.com/appliedtechnology/addons-ts-lab-puppiesApi#readme",
+  "homepage": "https://dogalogue.herokuapp.com/",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",

@@ -4,13 +4,13 @@ import { Puppy } from '../types';
 import "./PuppyListStyle.css"
 
 interface PuppyListComponentProps {
-    puppies: Puppy[],
-    setCounter: React.Dispatch<React.SetStateAction<number>>
+  puppies: Puppy[],
+  setCounter: React.Dispatch<React.SetStateAction<number>>
 }
 
-const PuppyList = ({puppies, setCounter}: PuppyListComponentProps) => {
+const PuppyList = ({ puppies, setCounter }: PuppyListComponentProps) => {
   return (
-    <div className="puppy-list">{puppies.map(puppy =><PuppyCard puppy={puppy} key={puppy._id} setCounter={setCounter} />)}</div>
+    <div className="puppy-list">{puppies.map(puppy => <PuppyCard puppy={puppy} key={puppy._id} setCounter={setCounter} />)}</div>
   )
 }
 
